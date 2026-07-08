@@ -36,3 +36,15 @@
 * `객체.함수();`
     * 객체를 함수방법으로 실행하기
     * `객체.함수() = '값';` => (x)
+## DOM(document oject model)
+### JS에서 제어하고 싶은 HTML요소가 있을 경우 순서
+1. 제어하고 싶은 HTML 수와 클래스, id 등 확인
+2. 용도에 맞게 변수명 생성 `const 변수명`
+3. 2번 변수 대입 연산자로 객체 대입하기
+    * `document.querySelector('HTML대상')`
+    * `const 변수명 = document.querySelector('HTML대상');`
+4. 안전한 작업을 위해 콘솔로 변수 체크하기
+    * `console.log(검사하고싶은변수명);`
+    * `null`이 뜬다면 HTML script 작성위치로 가서 속성 추가
+        * `<script src="경로" defer></script>`
+
