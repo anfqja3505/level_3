@@ -28,14 +28,26 @@
     * 객체의 속성을 읽기
     * `a.href;`
     * `video.src;`, `video.autoplay;`
+    * `span.textContent;` //span태그 안 내용을 읽는다. <span>내용</span>
+    * `input.value;` // `value`는 `input`전용 속성으로 다른 태그에 사용불가 
 * `객체.속성 = '값';`
     * 객체의 속성 값을 대입하기
     * 대입 시 기존값이 있으면 기존값 자동 제거되고 새로운 값 대입
     * `a.href = './reset.css';`
     * `video.src = './dog.mp4';`, `video.autoplay = 0;`
+    * `<span>0</span>` //span의 내용 0을 -> 1로 변경
+    * `span.textContent = 1 ;` // span태그의 기존내용을 제거하고 내용을 1로 대입한다에
+    * `span.textContent = span.textContent+1;` // span태그의 기존 내용인 0 과 1을 연결한 값(01)을 대입한다.
+    * `<input type="text" value="1">` //input의 내용 1 -> 2 변경
+    * `input.value = 2;` //input태그의 value 속성의 값 기존속성을 제거하고 2로 대입한다.
+    * `input.value = input.value +2;` //input태그의 value 속성의 값에 기존속성에 2를 더한 값을 대입한다. 
 * `객체.함수();`
     * 객체를 함수방법으로 실행하기
     * `객체.함수() = '값';` => (x)
+* `이벤트="함수();"`
+    * 이벤트 동작 시 특정 함수를 실행한다.
+    * `<태그 onclick="func();">` //함수호출
+    * 위 작성 전 준비사항 : `function func(){반복실행형}` //함수생성
 ## DOM(document oject model)
 ### JS에서 제어하고 싶은 HTML요소가 있을 경우 순서
 1. 제어하고 싶은 HTML 수와 클래스, id 등 확인
@@ -59,3 +71,20 @@
     `width:가로크기px; height:세로크기px;`
     `position:absolute; left right top bottom 등의 위치 좌표 추가 작성`
 `}`
+* after, before가 적용된 부모 선택자에 `position:relavice` 기준잡기
+# form 태그
+## form태그와 action, method
+* form : 사용자가 서버에 전송할 데이터를 입력하는 태그들을 묶어주는 태그
+* action : 그룹에 작성 또는 선택된 사용자 데이터를 전송할 URL
+* method : 데이터를 보내는 방식을 정함 (get, post(보안))
+## input태그와 type
+* input : 사용자가 입력할 수 있는 입력창을 생성하는 태그 (type 필수)
+* type : text, password, num 등 입력창의 종류를 생성
+## name속성
+* aution으로 저장된 사이트서버 위치에 사용자가 입력한 데이터를 전송할 때 구분하는 데이터 명칭
+## value속성
+* 입력양식 : 사용자가 입력하기 전 미리 채워져 있는 값
+* 선택양식 : 위 name 처럼 데이터 구분명칭 
+## id, class속성 
+* class : 반복되는 의미명, 여러번 중복 사용 가능
+* id : 독립적인 의미명, 한번만 사용 가능
