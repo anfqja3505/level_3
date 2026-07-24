@@ -1,0 +1,266 @@
+/* animation02.css */
+.step2 {
+    margin-bottom: 50px;
+}
+.step2 p {
+    background-image: url(https://i.pinimg.com/736x/ee/d8/38/eed8381d479d48759a9f2f08a7a3c7d6.jpg);
+    width: 50%; height: 500px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* transition:애니메이션적용속성 지속시간; */
+    transition: background-size 0.8s, background-image 1s, background-position 0.1s;
+    margin-bottom: 20px;
+}
+
+/* p에 마우스 올렸을 때 배경 이미지 속성 애니메이션 적용 */
+.step2 p:hover {
+    background-size: 120%;
+    background-image: url(https://i.pinimg.com/1200x/1d/8a/f0/1d8af0b41d5d5454421756b4733f0eb3.jpg);
+    background-position: center 0;
+}
+
+/* =========================================가속도 애니메이션 연습 */
+#map {
+    padding: 10px; background-color: #f5f5f5;
+    display: flex; flex-flow: column nowrap;
+    position: relative;
+}
+#map #start {
+    width: 50px; height: 50px;
+    border-radius: 50%; background: #f00; color: #fff;
+}
+#map img {
+    width: 100px;
+}
+#map .hamster1 {transition:transform 1s ease;}
+#map .hamster2 {transition:transform 1s linear;}
+#map span {transform: scaleX(-1);}
+#map span .hamster3 {
+    transform: translatex(400px);
+    transition:transform 1s linear;
+}
+/* transform에 두개 이상의 속성이 적용 됐을 때 transition은 그 속성을 따로 구분하는게 아닌 transform에 들어간 모든 속성에 동시에 애니메이션을 적용한다. 따로 적용하고 싶다면 부모-자식 구조로 transform속성을 나눠야한다. */
+#map .hamster4 {transition:transform 1.5s ease-out;}
+/* 시작버튼에 마우스를 올리면 1번 자동차가 오른쪽으로 400px 만큼 이동 */
+#map #start:hover + .hamster1 {transform: translateX(400px);}
+/* 시작버튼에 마우스를 올리면 2번 자동차가 오른쪽으로 400px 아래로 15px 만큼 이동 */
+#map #start:hover ~ .hamster2 {transform: translate(400px, 15px);}
+/* 시작버튼에 마우스를 올리면 3번 자동차가 오른쪽 400px 위치에서 왼쪽 0위치만큼 이동 */
+#map #start:hover ~ span .hamster3 {transform: translateX(0);}
+/* 시작버튼에 마우스를 올리면 4번 자동차가 10도 회전, 오른쪽으로 100 이동 */
+#map #start:hover ~ .hamster4 {
+    transform: translate(100px) rotate(80deg);
+}
+/* ====================================내비게이션 메뉴 + 서브메뉴 */
+nav {width: 350px; margin: 60px 20px; text-align: center;}
+nav > ul {}
+nav > ul > li {position: relative;}
+/* nav > ul > li:hover .sub {display: block;} */
+nav > ul > li > a {/* 메인메뉴 */
+    background-color:blueviolet; 
+    color: #fff; 
+    display: block;
+    line-height: 40px;
+
+}
+nav > ul > li:hover .sub {
+    height: 120px;
+    opacity: 1;
+}
+nav > ul > li .sub {
+    /* display: none; */ /* 1. 서브메뉴 초기 숨기기 */
+    width: 100%; height: 0;
+    position: absolute;
+    overflow: hidden;
+    transition:height 0.7s ease, opacity 1s;
+    opacity: 0;
+}
+nav > ul > li .sub li {}
+nav > ul > li .sub li a {/* 서브메뉴 */
+    background-color:dodgerblue; 
+    color: #111; 
+    display: block;
+    line-height: 30px;
+}
+.hero_brn {background-color: lime; height: 400px;}
+/* 메인메뉴에 마우스 올리면 서브메뉴가 실행된다 -> CSS */
+
+
+/* 메인메뉴를 클릭(터치)하면 서브메뉴가 실행된다 -> JS */
+
+
+/* ===============================================================에어비엔비 */
+.airbnb {width: 600px; margin: 60px 20px; text-align: center;}
+.airbnb .lnb {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.airbnb .lnb > li {
+    position: relative;
+}
+.airbnb .lnb > li > a {
+    background-color: #eee;
+    width: max-content; 
+    display: block; 
+    border-radius: 50px;
+    padding: 10px;
+}
+.airbnb .lnb > li:nth-child(1) a {
+    background-color: #fefefe;
+    padding: 15px;
+}
+.airbnb .lnb > li:nth-child(1):hover a {background-color: #eee;}
+.airbnb .lnb > li .sub {
+    width: max-content; height: 0; 
+    overflow: hidden;
+    position: absolute;
+    left: -120px; top: 50px;
+    transition: height 0.6s, opacity 1s;
+    opacity: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+.airbnb .lnb > li:hover .sub{
+    background-color: #fff;
+    height: 280px;
+    opacity: 1;
+    padding: 0 15px;
+}
+.airbnb .lnb > li .sub li {border-bottom: 1px solid #111;}
+.airbnb .lnb > li .sub li a {
+    line-height: 36px; display: block;
+    padding: 10px;
+}
+.airbnb_hero {
+    background-color: aqua;
+    height: 400px;
+}
+/* =========================================아이폰광고+그라데이션 애니메이션 효과 */
+.gra1 {
+    border-radius: 25px;
+    margin: 50px auto;
+    width: 85%;
+    height: 600px; 
+    display: flex; flex-flow: column nowrap;
+    justify-content: center; align-items: center; gap: 12px;
+    background: linear-gradient(90deg, #f5f5f5, rgba(173, 96, 255));
+    position: relative;
+    overflow: hidden;
+    /* transition: background-size 2s; */
+    /* background-size: 100%; */
+}
+.gra1 * {position: relative; z-index: 100;}
+.gra1::after {
+    content: ''; display: block;
+    position: absolute; left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, #f5f5f5, rgba(74, 158, 255));
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 90;
+}
+/* gra1에 마우스를 올리면 가상after의 opacity 1로 변경 */
+.gra1:hover::after {
+    /* background-size: 200%; */
+        opacity: 1;
+}
+/* gra1에 마우스를 올리면 gra1 그라데이션 변경 */
+.gra1 h1 {
+    text-align: center;
+    line-height: 1.3;
+    font-weight: 900; 
+    font-size: 3.5rem; 
+    letter-spacing: -0.02em;
+    /* 글자에 적용하는 그라데이션 효과 + 애니메이션 */
+    background: linear-gradient(90deg, #fff, #ff0, #fff, #af0, #fff);
+    /* 글자 안에서만 보이는 그라데이션 효과 만들기 속성(고정속성과 값) */
+    color: transparent; /* 글자의 색상을 투명하게 */
+    -webkit-background-clip: text; /* 투명한 글자안에 배경색이 마스크로 적용 */
+    /* 글자 애니메이션 준비 속성(색상변경x, 크기와 위치를 이용한 동적) */
+    background-size: 500%;
+    background-position: 0 0;/* 시작위치설정 */
+    transition: background-position 5s;
+}
+.gra1 h1:hover {background-position: 100% 0;} /* 올렸을 때 배경위치변경값 */
+.gra1 a {
+    display: inline-block;
+    background: #000; 
+    color: #fff;
+    padding: 12px 22px; border-radius: 18px;
+}
+
+.gra2 {
+    background-image: url(https://i.namu.wiki/i/Txp7Ur1YBHbEj8PrEaeXbdr-MfTR24J-twD1GgAh9BQ3NPzD88B7ZEAChbLejlaRmq_93zZeShAAmDt0IH_HnQ.webp);
+    background-size: 85%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 500px; height: 600px;
+    margin: 15px auto;
+    display: flex; flex-flow: column nowrap;
+    justify-content: center; align-items: center; gap: 12px;
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+}
+.gra2::after {
+    content: ''; display: block;
+    width: 100%; height: 100%;
+    position: absolute;
+    left: 0; top: 0;
+    background: linear-gradient(135deg, #222 , #fff , #222 );
+    background-repeat: no-repeat;
+    background-size: 1000%;
+    background-position: center;
+    opacity: 1;
+    transition: background-size 1.5s;
+    z-index: -1;
+
+
+}
+.gra2 * {
+    font-size: 3em;
+    font-weight: 900;
+    background: linear-gradient(135deg, #222, #fff, #222);
+    background-size: 1000%;
+    background-position: 0 0;
+    color: transparent;
+    -webkit-background-clip: text;
+    transition: background-position 7s;
+    z-index: 100;
+}
+.gra2:hover::after {background-size: 30%;}
+.gra2:hover * {
+    background-position: 100% 0;
+}
+.gra2 h2 {}
+.gra2 h3 {}
+/* ============================================================== */
+.gnb {
+    text-align: center;
+}
+.gnb ul {
+    display: flex;
+}
+.gnb ul > li {position: relative;}
+.gnb ul > li > a {
+    background-color: #eee;
+    color: #222;
+    line-height: 30px;
+    display: block;
+    padding: 0 10px;
+}
+.gnb ul > li > .snb {
+    display: flex;
+    position: absolute;
+    width: max-content;
+}
+.gnb ul > li .snb li {}
+.gnb ul > li .snb li a {
+    background-color: rgba(255, 255, 0, 0.25);
+    line-height: 50px; display: block;
+    padding: 0 10px;
+}
